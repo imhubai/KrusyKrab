@@ -104,6 +104,7 @@
 
         /*
         * 编辑管理员
+        * obj: 编辑按钮(admin-page-p2.jsp)
          */
         function editAdmin(obj) {
             let aid = $(obj).attr("data-id");
@@ -135,6 +136,10 @@
             });
         }
 
+        /*
+        * 提交修改管理员
+        * thisobj: 提交按钮(admin-page-p2-editcard.jsp)
+         */
         function updateAdmin(thisobj) {
             let aid = $(thisobj).attr("data-aid");
             $.ajax({
@@ -171,6 +176,7 @@
 
         /*
         * 删除管理员
+        * obj: 删除按钮(admin-page-p2.jsp)
          */
         function deleteAdmin(obj) {
             let aid = $(obj).attr("data-id");
