@@ -83,8 +83,8 @@
         $(function () {
             $('#pagination').pagination({
                 dataSource: function (done) {
-                    var result = [];
-                    for (var i = 1; i <= ${count}; i++) {
+                    const result = [];
+                    for (let i = 1; i <= ${count}; i++) {
                         result.push(i);
                     }
                     done(result);
