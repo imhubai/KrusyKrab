@@ -41,8 +41,21 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public boolean deleteAdmin(int aid) throws Exception {
+    public boolean deleteAdmin(int aid) {
         String sql = "delete from admin where aid = " + aid;
         return JDBCTemplate.update(sql, null) >= 1;
+    }
+
+    @Override
+    public Admin getAdmin(int aid) throws Exception {
+        String sql = "select * from admin where aid = '" + aid + "'";
+        return JDBCTemplate.queryForObject(sql, rowMapper, (Object[]) null);
+    }
+
+    @Override
+    public boolean updateAdmin(int aid, String adminId, String adminName, String adminPassword, String adminType) {
+        String sql = "update admin set admin_id='"+adminId+"',admin_name='"+adminName+"',admin_password='"+adminPassword+"',admin_type='"+adminType+"' where aid="+aid;
+        System.out.println(sql);
+        return JDBCTemplate.update(sql,  null) >= 1;
     }
 }

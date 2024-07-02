@@ -34,4 +34,16 @@ public class AdminServiceImpl implements AdminService {
         AdminDao adminDao = new AdminDaoImpl();
         return adminDao.getAdminCount();
     }
+
+    @Override
+    public Admin getAdminById(int aid) throws Exception {
+        AdminDao adminDao=new AdminDaoImpl();
+        return adminDao.getAdmin(aid);
+    }
+
+    @Override
+    public boolean editAdmin(int aid, String adminId, String adminName, String adminPassword, String adminType) throws Exception {
+        AdminDao adminDao=new AdminDaoImpl();
+        return adminDao.updateAdmin(aid,adminId,adminName,adminPassword,adminType);
+    }
 }

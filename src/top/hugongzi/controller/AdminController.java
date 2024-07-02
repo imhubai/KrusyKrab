@@ -1,5 +1,6 @@
 package top.hugongzi.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import top.hugongzi.dao.AdminDaoImpl;
 import top.hugongzi.entity.Admin;
 import top.hugongzi.framework.annotations.Controller;
@@ -50,6 +51,26 @@ public class AdminController {
         if (adminService.deleteAdmin(Integer.parseInt(aid))) {
             return "return:200";
         } else return "return:400";
+    }
+
+    @RequestMapping("/admin/getAdmin")
+    public String getAdmin(@RequestParam(name = "aid") String aid) throws Exception {
+        adminService = new AdminServiceImpl();
+        int aid_int = Objects.equals(aid, null) ? -1 : Integer.parseInt(aid);
+        Admin admin = adminService.getAdminById(aid_int);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(admin);
+        return "return:" + json;
+    }
+
+    @RequestMapping("/admin/editAdmin")
+    public String editAdmin(@RequestParam(name = "aid") String aid, @RequestParam(name = "adminid") String adminId,  @RequestParam(name = "adminname") String adminName,@RequestParam(name = "adminpassword") String adminPassword, @RequestParam(name = "admintype") String adminType) throws Exception {
+        adminService = new AdminServiceImpl();
+        if(adminService.editAdmin(Integer.parseInt(aid), adminId, adminName, adminPassword, adminType)){
+            return "return:200";
+        }else{
+            return "return:401";
+        }
     }
 
     @RequestMapping("/admin/page")

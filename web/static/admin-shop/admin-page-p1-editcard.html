@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="assets/css/tailwind.output.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <script src="assets/js/init-alpine.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/paginationjs@2.6.0/dist/pagination.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/paginationjs@2.6.0/dist/pagination.min.css" rel="stylesheet">
+</head>
+
+<body>
+        <div class="inset-0 flex items-center justify-center w-full min-h-screen rounded-lg shadow-xl">
+            <div class="px-6 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+                <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+                    编辑管理员
+                </h4>
+
+                <label class="block text-xs">
+                    <span class="text-gray-700 dark:text-gray-400">管理员账号</span>
+                    <input
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="" />
+                </label>
+                
+                <label class="block text-xs">
+                    <span class="text-gray-700 dark:text-gray-400">管理员密码</span>
+                    <input
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="" />
+                </label>
+
+                <label class="block text-xs">
+                    <span class="text-gray-700 dark:text-gray-400">管理员名称</span>
+                    <input
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="" />
+                </label>
+
+                <div class="mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">
+                        管理员类型
+                    </span>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
+                            <input
+                                class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                name="accountType" type="radio" value="personal" />
+                            <span class="ml-2">超级管理员</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+                            <input
+                                class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                name="accountType" type="radio" value="busines" />
+                            <span class="ml-2">店长</span>
+                        </label>
+                        <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+                            <input
+                                class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                name="accountType" type="radio" value="busines" />
+                            <span class="ml-2">店员</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex justify-end mt-2 ">
+                    <button
+                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-stone-600 active:bg-stone-600 hover:bg-stone-700 focus:outline-none focus:shadow-outline-purple">
+                        取消
+                    </button>
+                    <button
+                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                        确定
+                    </button>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

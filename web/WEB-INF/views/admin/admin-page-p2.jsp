@@ -73,6 +73,7 @@
             </div>
         </div>
     </div>
+    <%@include file="admin-page-p2-editcard.jsp" %>
     <script>
         /*
         * 分页组件 https://pagination.js.org/
@@ -106,7 +107,66 @@
          */
         function editAdmin(obj) {
             let aid = $(obj).attr("data-id");
-            //todo
+            $.ajax({
+                url: "admin/getAdmin",
+                type: "post",
+                data: {
+                    "aid": aid
+                },
+                success: function (data) {
+                    $("#edit_card").fadeIn();
+                    let obj = jQuery.parseJSON(data);
+                    $("#edit_card_adminid").val(obj.adminId);
+                    $("#edit_card_adminpassword").val(obj.adminPassword);
+                    $("#edit_card_adminname").val(obj.adminName);
+                    $("#edit_card_ok_button").attr("data-aid", aid);
+                    switch (obj.adminType) {
+                        case 0:
+                            $("#edit_card_admintype0").prop("checked", true);
+                            break;
+                        case 1:
+                            $("#edit_card_admintype1").prop("checked", true);
+                            break;
+                        case 2:
+                            $("#edit_card_admintype2").prop("checked", true);
+                            break;
+                    }
+                }
+            });
+        }
+
+        function updateAdmin(thisobj) {
+            let aid = $(thisobj).attr("data-aid");
+            $.ajax({
+                url: "admin/editAdmin",
+                type: "post",
+                data: {
+                    "aid": aid,
+                    "adminid": $("#edit_card_adminid").val(),
+                    "adminpassword": $("#edit_card_adminpassword").val(),
+                    "adminname": $("#edit_card_adminname").val(),
+                    "admintype": $("input[name='adminType']:checked").val()
+                },
+                success: function (data) {
+                    if (data == 200) {
+                        $("#toast-title").text("修改成功");
+                        $("#toast-content").text(data);
+                        $("#toast").fadeIn();
+                        setTimeout(function () {
+                            $("#toast").fadeOut();
+                        }, 2000);
+                        $("#edit_card").fadeOut();
+                        changepage("p2", "#lip2", ${curpage});
+                    } else {
+                        $("#toast-title").text("修改失败");
+                        $("#toast-content").text(data);
+                        $("#toast").fadeIn();
+                        setTimeout(function () {
+                            $("#toast").fadeOut();
+                        }, 2000);
+                    }
+                }
+            });
         }
 
         /*
@@ -126,13 +186,22 @@
                         "aid": aid
                     },
                     success: function (data) {
-                        $("#toast-title").text("删除成功");
-                        $("#toast-content").text(data);
-                        $("#toast").fadeIn();
-                        setTimeout(function () {
-                            $("#toast").fadeOut();
-                        }, 2000);
-                        $("#trlist-" + aid).remove();
+                        if (data == 200) {
+                            $("#toast-title").text("删除成功");
+                            $("#toast-content").text(data);
+                            $("#toast").fadeIn();
+                            setTimeout(function () {
+                                $("#toast").fadeOut();
+                            }, 2000);
+                            changepage("p2", "#lip2", ${curpage});
+                        } else {
+                            $("#toast-title").text("删除失败");
+                            $("#toast-content").text(data);
+                            $("#toast").fadeIn();
+                            setTimeout(function () {
+                                $("#toast").fadeOut();
+                            }, 2000);
+                        }
                     }
                 });
             });
