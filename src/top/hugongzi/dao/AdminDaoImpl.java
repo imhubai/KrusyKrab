@@ -24,38 +24,37 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public Admin getAdmin(String adminId) throws Exception {
-        String sql = "select * from admin where admin_id = '" + adminId + "'";
-        return JDBCTemplate.queryForObject(sql, rowMapper, (Object[]) null);
+        String sql = "select * from admin where admin_id = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper, adminId);
     }
 
     @Override
     public long getAdminCount() throws Exception {
         String sql = "select count(*) from admin";
-        return JDBCTemplate.queryForObject(sql, (rs, rowNum) -> rs.getLong(1), null);
+        return JDBCTemplate.queryForObject(sql, (rs, rowNum) -> rs.getLong(1), (Object) null);
     }
 
     @Override
     public List<Admin> getAllAdmin(int last_limit, int next_limit) {
-        String sql = "select * from admin limit " + last_limit + "," + next_limit;
-        return JDBCTemplate.query(sql, rowMapper, (Object[]) null);
+        String sql = "select * from admin limit ?,?";
+        return JDBCTemplate.query(sql, rowMapper, last_limit, next_limit);
     }
 
     @Override
     public boolean deleteAdmin(int aid) {
-        String sql = "delete from admin where aid = " + aid;
-        return JDBCTemplate.update(sql, null) >= 1;
+        String sql = "delete from admin where aid = ?";
+        return JDBCTemplate.update(sql, aid) >= 1;
     }
 
     @Override
     public Admin getAdmin(int aid) throws Exception {
-        String sql = "select * from admin where aid = '" + aid + "'";
-        return JDBCTemplate.queryForObject(sql, rowMapper, (Object[]) null);
+        String sql = "select * from admin where aid = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper, aid);
     }
 
     @Override
     public boolean updateAdmin(int aid, String adminId, String adminName, String adminPassword, String adminType) {
-        String sql = "update admin set admin_id='"+adminId+"',admin_name='"+adminName+"',admin_password='"+adminPassword+"',admin_type='"+adminType+"' where aid="+aid;
-        System.out.println(sql);
-        return JDBCTemplate.update(sql,  null) >= 1;
+        String sql = "update admin set admin_id= ? ,admin_name= ? ,admin_password= ? ,admin_type= ?  where aid= ?";
+        return JDBCTemplate.update(sql, adminId, adminName, adminPassword, adminType, aid) >= 1;
     }
 }

@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User getUser(String username) throws Exception {
-        String sql = "select * from user where user_id = '"+username+"'";
-        return JDBCTemplate.queryForObject(sql, rowMapper, (Object[]) null);
+        String sql = "select * from user where user_id = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper, username);
     }
 }
