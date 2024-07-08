@@ -7,7 +7,7 @@
                 <p class="mt-6 text-lg leading-8 text-gray-600">
                     最新至尊豪华鲜肉蟹黄堡上线，优选纯正比基尼鲜牛肉搭配新鲜西红柿，火煎牛排浇汁，体验一口超香超满足!</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="#"
+                    <a href="login"
                        class="rounded-sm bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">开始点餐</a>
                     <a href="https://www.bilibili.com/video/BV1GJ411x7h7/"
                        class="text-sm font-semibold leading-6 text-gray-900">了解更多 <span

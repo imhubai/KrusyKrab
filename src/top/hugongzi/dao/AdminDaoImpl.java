@@ -31,7 +31,7 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public long getAdminCount() throws Exception {
         String sql = "select count(*) from admin";
-        return JDBCTemplate.queryForObject(sql, (rs, rowNum) -> rs.getLong(1), (Object) null);
+        return JDBCTemplate.queryForObject(sql, (rs, rowNum) -> rs.getLong(1), null);
     }
 
     @Override

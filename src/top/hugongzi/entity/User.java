@@ -1,5 +1,7 @@
 package top.hugongzi.entity;
 
+import java.util.Date;
+
 public class User {
 
   private long uid;
@@ -9,7 +11,7 @@ public class User {
   private String email;
   private String sex;
   private String phone;
-  private java.sql.Date birthday;
+  private Date birthday;
   private long usertype;
   private java.sql.Timestamp createtime;
   private String avatar;
@@ -78,11 +80,11 @@ public class User {
   }
 
 
-  public java.sql.Date getBirthday() {
+  public Date getBirthday() {
     return birthday;
   }
 
-  public void setBirthday(java.sql.Date birthday) {
+  public void setBirthday(Date birthday) {
     this.birthday = birthday;
   }
 

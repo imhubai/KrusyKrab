@@ -167,8 +167,8 @@ public class FrontController extends HttpServlet {
                         String view = mv.getView();
                         Map<String, Object> model = (Map<String, Object>) mv.getModel();
                         model.forEach(request::setAttribute);
-                        RequestDispatcher rd = request
-                                .getRequestDispatcher(this.viewLocation + "/" + view + this.suffix);
+                        mv.getCookies().forEach(response::addCookie);
+                        RequestDispatcher rd = request.getRequestDispatcher(this.viewLocation + "/" + view + this.suffix);
                         rd.forward(request, response);
                     } else {
                         // 返回值为字符串，用于表示要显示的视图页面，如果以redirect:开头，则以重定向的方式跳转，否则转发

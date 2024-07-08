@@ -8,14 +8,254 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-
 </head>
 
 <body>
-    <div>
+    
+        <!-- title -->
+        <div class="flex items-center w-full border-b-2 border-black border-dashed" id="top-title-container">
+            <h4 class="flex-1 p-1 overflow-hidden font-bold text-center whitespace-nowrap" id="banner-ads">蟹堡王点餐小程序</h4>
+        </div>
+        <!--界面-->
+        <div class="container relative w-full h-screen overflow-hidden">
+        <main class="relative flex flex-col w-full h-full">
+            <div class="flex flex-col flex-shrink-0 h-auto" id="nav">
+                <div class="flex items-center justify-between w-full h-auto p-3 bg-white" id="top-area">
+                    <div class="flex flex-col flex-1" id="top-area-left">
+                        <div class="flex items-center justify-start mb-1" id="store-name">
+                            <span>蟹堡王总店 SUPERhAM</span>
+                        </div>
+                        <div class="flex items-center justify-start text-xs text-gray-600" id="store-location">
+                            <span>距离您100m</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center pr-2 bg-gray-100 rounded-2xl" id="top-area-right">
+                        <div id="take-btn-in">
+                            <button class="pt-1 pb-1 pl-4 pr-4 text-sm rounded-2xl bg-lime-400">自取</button>
+                        </div>
+                        <div class="pt-1 pb-1 pl-2 pr-2" id="take-btn-out">
+                            <button class="text-sm">外卖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center flex-1 w-full pl-2 pr-2 overflow-hidden text-xs shadow-inner bg-lime-100"
+                    id="coupon">
+                    <h4 class="flex-1 m-2 overflow-hidden whitespace-nowrap text-ellipsis text-lime-800"
+                        id="banner-ads">新品上线!
+                        无敌龙鳞屠龙刀点击就送！</h4>
+                    <!-- 图标 -->
+                </div>
+            </div>
+            <!-- 主菜单-->
+            <div class="flex flex-1 w-full overflow-hidden" id="content">
+                <div class="w-24 h-full overflow-hidden bg-slate-50" id="menus">
+                    <div class="w-full h-screen overflow-x-hidden overflow-y-auto scroll-smooth" id="scorllview">
+                        <div id="wrapper">
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>超级早餐</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+                                    2
+                                </div>
+                            </div>
 
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>超值套餐</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>精选牛堡</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>爆款小食</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>爆炸丸子</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>爆炸丸子</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试1</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                            <div class="relative flex items-center justify-start pt-4 pb-4 pl-3 pr-3 text-xs"
+                                id="data_test1">
+                                <span>测试2</span>
+                                <div class="absolute w-4 text-center bg-red-500 rounded-full h- top-2 right-1" id="dot">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 h-full pl-2 pr-2 overflow-hidden bg-white" id="goods">
+                    <div class="w-full h-full overflow-x-hidden overflow-y-auto" id="scorllview">
+                        <div class="w-full h-full p-2" id="wrapper">
+                            <div class="relative block w-full overflow-hidden translate-x-0 max-h-24 isolate" id="ads">
+                                <img alt="" src="https://img.picui.cn/free/2024/07/05/66874648daf32.png">
+                                <div class="absolute bottom-0 left-0 right-0 t-0" id="slide"></div>
+                            </div>
+                            <div class="w-full pb-16 text-sm" id="list">
+                                <div class="w-full" id="ctest1">
+                                    <div class="flex items-center pt-3 pb-3 text-gray-500" id="title">
+                                        <div id="texttitle">
+                                            <span>早餐</span>
+                                        </div>
+                                        <div id="icon">
+                                            <span>*</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col" id="item">
+
+                                    <!-- 1 -->
+                                        <div class="flex items-center mb-3" id="good">
+                                            <div>
+                                                <img alt=""
+                                                    class="w-16 h-16 mr-2 rounded-sm" src="https://img.picui.cn/free/2024/07/05/66874648daf32.png">
+                                            </div>
+                                            <div class="flex flex-col items-start justify-between flex-1 h-20 pr-1 overflow-hidden"
+                                                id="right">
+                                                <div class="mb-0 text-sm" id="name">
+                                                    <span>瑞克五代</span>
+                                                </div>
+                                                <div class="w-full h-5 overflow-hidden text-xs text-gray-700 text-ellipsis text-nowrap"
+                                                    id="des">
+                                                    <span>缤纷口味，助力你夏天清爽1111111111111</span>
+                                                </div>
+                                                <div class="flex items-center justify-between w-full" id="price_action">
+                                                    <div class="font-bold" id="price">
+                                                        <span>$55.5</span>
+                                                    </div>
+                                                    <div class="relative flex items-center justify-between"
+                                                        id="btngroup">
+                                                        <div class="flex items-center justify-center w-5 h-5 border rounded-full"
+                                                            id="reduce_btn">
+                                                            <a>-</a>
+                                                        </div>
+                                                        <div class="pl-1 pr-1">
+                                                            <span>1</span>
+                                                        </div>
+                                                        <div class="flex items-center justify-center w-5 h-5 border rounded-full bg-lime-500"
+                                                            id="add_btn">
+                                                            <a>+</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 2 -->
+                                        <div class="flex items-center mb-3" id="good">
+                                            <div>
+                                                <img alt="" class="w-16 h-16 mr-2 rounded-sm" src="https://img.picui.cn/free/2024/07/05/66874648daf32.png">
+                                            </div>
+                                            <div class="flex flex-col items-start justify-between flex-1 h-20 pr-1 overflow-hidden" id="right">
+                                                <div class="mb-0 text-sm" id="name">
+                                                    <span>传统香烟</span>
+                                                </div>
+                                                <div class="w-full h-5 overflow-hidden text-xs text-gray-700 text-ellipsis text-nowrap" id="des">
+                                                    <span>什么年代了还抽传统香烟?????</span>
+                                                </div>
+                                                <div class="flex items-center justify-between w-full" id="price_action">
+                                                    <div class="font-bold" id="price">
+                                                        <span>$99.9</span>
+                                                    </div>
+                                                    <div class="relative flex items-center justify-between" id="btngroup">
+                                                        <div class="flex items-center justify-center w-5 h-5 border rounded-full" id="reduce_btn">
+                                                            <a>-</a>
+                                                        </div>
+                                                        <div class="pl-1 pr-1">
+                                                            <span>1</span>
+                                                        </div>
+                                                        <div class="text-xs rounded-xl bg-lime-500" id="property_btn">
+                                                            <a class="p-1">选规格</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-<div class="fixed inset-x-0 bottom-0 h-16 min-w-full align-bottom bg-orange-500 w-min-full"></div>
 </body>
 
 </html>
