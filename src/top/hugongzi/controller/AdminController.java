@@ -17,6 +17,7 @@ import top.hugongzi.framework.db.PageInfo;
 import top.hugongzi.framework.model.ModelAndView;
 import top.hugongzi.service.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,7 @@ public class AdminController {
      * @return 登录成功返回管理员主页面，失败返回登录页面。
      */
     @RequestMapping("/admin")
-    public ModelAndView login(@RequestParam(name = "adminid") String adminId, @RequestParam(name = "adminpassword") String adminPassword) {
+    public ModelAndView login(@RequestParam(name = "adminid") String adminId, @RequestParam(name = "adminpassword") String adminPassword, HttpSession session) {
         if (Objects.equals(adminId, "") || Objects.equals(adminPassword, "")) {
             return new ModelAndView("page/adminlogin");
         }
@@ -62,15 +63,6 @@ public class AdminController {
         }
         return modelAndView;
     }
-
-
-    /*Admin管理层 Admin管理层Admin管理层Admin管理层
-    Admin管理层 Admin管理层Admin管理层Admin管理层
-    Admin管理层Admin管理层Admin管理层 Admin管理层
-    Admin管理层Admin管理层Admin管理层 Admin管理层
-    Admin管理层Admin管理层Admin管理层 Admin管理层
-    Admin管理层Admin管理层Admin管理层 Admin管理层*/
-
 
     /**
      * 删除管理员

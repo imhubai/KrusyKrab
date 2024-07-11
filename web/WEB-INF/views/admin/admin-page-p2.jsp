@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    <%@include file="admin-page-p2-editcard.jsp" %>
+    <%@include file="./editcards/admin-page-p2-editcard.jsp" %>
     <script>
         /*
         * 分页组件 https://pagination.js.org/

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<html>
+<html lang="zh-CN">
 <head>
     <title>蟹堡王</title>
     <%@include file="../common/common-include.jsp" %>

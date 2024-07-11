@@ -84,7 +84,7 @@
             </div>
         </div>
     </div>
-    <%@include file="admin-page-p4-editcard.jsp"%>
+    <%@include file="./editcards/admin-page-p4-editcard.jsp"%>
     <script>
         /*
        * 分页组件 https://pagination.js.org/
