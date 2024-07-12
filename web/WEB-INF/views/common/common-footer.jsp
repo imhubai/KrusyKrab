@@ -70,7 +70,7 @@
 
                     <div>
                         <h3 class="text-gray-700 uppercase dark:text-white">产品</h3>
-                        <a href="https://www.bilibili.com/video/BV1GJ411x7h7/"
+                        <a href="order"
                            class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">蟹黄堡点餐</a>
                         <a href="https://www.bilibili.com/video/BV1GJ411x7h7/"
                            class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">产品目录</a>

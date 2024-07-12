@@ -58,6 +58,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserByName(String username) throws Exception {
+        String sql = "select * from user where user_id = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper, username);
+    }
+
+    @Override
     public boolean updateUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar) {
         String sql = "update user set user_id = ?,password = ?,nickname = ?,email = ?,sex = ?,phone = ?,birthday = ?,usertype = ?,avatar = ? where uid = ?";
         return JDBCTemplate.update(sql, userId, password, nickname, email, sex, phone, birthday, usertype, avatar, uid) >= 1;

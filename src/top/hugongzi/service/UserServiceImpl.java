@@ -41,6 +41,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByName(String username) throws Exception {
+        UserDao userDao = new UserDaoImpl();
+        return userDao.getUserByName(username);
+    }
+
+    @Override
     public boolean editUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar) {
         UserDao userDao = new UserDaoImpl();
         return userDao.updateUser(uid, userId, password, nickname, email, sex, phone, birthday, usertype, avatar);

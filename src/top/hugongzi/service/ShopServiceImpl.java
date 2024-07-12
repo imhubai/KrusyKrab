@@ -35,6 +35,12 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
+    public Shop getShopByShopId(String shopId) throws Exception {
+        ShopDao shopDao = new ShopDaoImpl();
+        return shopDao.getShop(shopId);
+    }
+
+    @Override
     public boolean editShop(int sid, String shopId, String shopName, String shopAddress, String shopPhone, String shopType) throws Exception {
         ShopDao shopDao = new ShopDaoImpl();
         return shopDao.updateShop(sid, shopId, shopName, shopAddress, shopPhone, shopType);

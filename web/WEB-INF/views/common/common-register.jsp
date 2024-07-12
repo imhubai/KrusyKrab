@@ -1,9 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<div class="flex justify-center px-6 py-24 lg:px-8">
+<div class="flex justify-end px-6 py-24 lg:px-8">
     <div class="mt-10 sm:w-full sm:max-w-xs max-w-full w-screen px-4 bg-stone-50 rounded-sm bg-opacity-75 shadow-xl backdrop-blur-sm">
-        <img src="${pageContext.servletContext.contextPath}/res/img/logo.png" alt="KKlogo" class="m-auto">
-        <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">蟹堡王通行证</h2>
-        <form class="space-y-2 mt-2" action="login" method="POST">
+        <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">注册蟹堡王通行证</h2>
+        <form class="space-y-2 mt-2" action="#" method="POST">
             <div>
                 <label for="account" class="block text-sm font-medium leading-6 text-gray-900">账号</label>
                 <div class="mt-2">

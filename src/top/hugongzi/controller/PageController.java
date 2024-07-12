@@ -18,10 +18,4 @@ public class PageController {
     public ModelAndView kkIndex() {
         return new ModelAndView("page/index");
     }
-
-    @RequestMapping("/order")
-    public ModelAndView order() {
-        ModelAndView mv = new ModelAndView("page/order");
-        return mv;
-    }
 }

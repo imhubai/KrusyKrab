@@ -1,6 +1,7 @@
 package top.hugongzi.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import top.hugongzi.constant.Vars;
 import top.hugongzi.dao.AdminDaoImpl;
 import top.hugongzi.dao.ProductDaoImpl;
 import top.hugongzi.dao.ShopDaoImpl;
@@ -44,6 +45,9 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public ModelAndView login(@RequestParam(name = "adminid") String adminId, @RequestParam(name = "adminpassword") String adminPassword, HttpSession session) {
+        if (session.getAttribute(Vars.currentAdmin) != null) {
+            return new ModelAndView("page/admin");
+        }
         if (Objects.equals(adminId, "") || Objects.equals(adminPassword, "")) {
             return new ModelAndView("page/adminlogin");
         }
@@ -52,6 +56,8 @@ public class AdminController {
         try {
             if (adminService.validate(adminId, adminPassword)) {
                 modelAndView = new ModelAndView("page/admin");
+                Vars.currentAdmin = adminId;
+                session.setAttribute(Vars.currentAdmin, adminId);
                 modelAndView.addObject("page", "p1");
             } else {
                 modelAndView = new ModelAndView("page/adminlogin");

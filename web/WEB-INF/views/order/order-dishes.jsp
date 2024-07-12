@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<body class="select-none">
 <!--界面-->
 <div class="container relative w-full h-screen overflow-hidden">
     <%@include file="../order/order-title.jsp" %>
@@ -8,10 +7,10 @@
             <div class="flex items-center justify-between w-full h-auto p-3 bg-white">
                 <div class="flex flex-col flex-1">
                     <div class="flex items-center justify-start mb-1">
-                        <span>蟹堡王总店 SUPERhAM</span>
+                        <span>${shop.shopName}</span>
                     </div>
                     <div class="flex items-center justify-start text-xs text-gray-600">
-                        <span>距离您100m</span>
+                        <span>${shop.shopAddress}</span>
                     </div>
                 </div>
                 <div class="flex items-center pr-2 bg-gray-100 rounded-2xl">
@@ -24,7 +23,8 @@
                 </div>
             </div>
             <div class="flex items-center flex-1 w-full pl-2 pr-2 overflow-hidden text-xs shadow-inner bg-lime-100">
-                <h4 class="flex-1 m-2 overflow-hidden whitespace-nowrap text-ellipsis text-lime-800" id="order-title-tip">新品上线!
+                <h4 class="flex-1 m-2 overflow-hidden whitespace-nowrap text-ellipsis text-lime-800"
+                    id="order-title-tip">新品上线!
                     无敌龙鳞屠龙刀点击就送！</h4>
                 <!-- 图标 -->
             </div>
@@ -105,8 +105,6 @@
                 </div>
             </div>
         </div>
-
         <%@include file="../order/order-dishes-modal.jsp" %>
     </main>
 </div>
-</body>

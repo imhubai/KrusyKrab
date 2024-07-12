@@ -15,5 +15,7 @@ public interface UserService {
 
     User getUserById(Long uid) throws Exception;
 
+    User getUserByName(String username) throws Exception;
+
     boolean editUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar);
 }
