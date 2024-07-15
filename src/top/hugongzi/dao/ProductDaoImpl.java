@@ -1,12 +1,13 @@
 package top.hugongzi.dao;
 
 import top.hugongzi.entity.Product;
+import top.hugongzi.entity.ProductType;
 import top.hugongzi.framework.db.JDBCTemplate;
 import top.hugongzi.framework.db.RowMapper;
 
 import java.util.List;
 
-public class ProductDaoImpl implements ProductDao{
+public class ProductDaoImpl implements ProductDao {
     private final RowMapper<Product> rowMapper = (rs, rowNum) -> {
         Product product = new Product();
         product.setPid(rs.getLong("pid"));
@@ -14,11 +15,19 @@ public class ProductDaoImpl implements ProductDao{
         product.setProductName(rs.getString("product_name"));
         product.setProductImg(rs.getString("product_img"));
         product.setProductPrice(rs.getDouble("product_price"));
-        product.setProductType(rs.getString("product_type"));
+        product.setProductType(rs.getLong("product_type"));
         product.setProductDescription(rs.getString("product_description"));
         product.setProductTags(rs.getString("product_tags"));
         return product;
     };
+    private final RowMapper<ProductType> rowMapper_productType = (rs, rowNum) -> {
+        ProductType productType = new ProductType();
+        productType.setTypeId(rs.getLong("type_id"));
+        productType.setTypeName(rs.getString("type_name"));
+        productType.setTypeImg(rs.getString("type_img"));
+        return productType;
+    };
+
     public RowMapper<Product> getRowMapper() {
         return rowMapper;
     }
@@ -54,8 +63,34 @@ public class ProductDaoImpl implements ProductDao{
     }
 
     @Override
-    public boolean updateProduct(Long pid, String productId, String productName, String productImg, double productPrice, String productType, String productDescription, String productTags) throws Exception {
-        String sql="update product set product_id = ?,product_name = ?,product_img = ?,product_price = ?,product_type = ?,product_description = ?,product_tags = ? where pid = ?";
-    return JDBCTemplate.update(sql, productId, productName, productImg, productPrice, productType, productDescription, productTags, pid) >= 1;
+    public Product getProductByProductId(String productId) throws Exception {
+        String sql = "select * from product where product_id = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper, productId);
     }
+
+    @Override
+    public ProductType getProductTypeByProductId(String productId) throws Exception {
+        long typeId = getProductByProductId(productId).getProductType();
+        String sql = "select * from product_type where type_id = ?";
+        return JDBCTemplate.queryForObject(sql, rowMapper_productType, typeId);
+    }
+
+    @Override
+    public boolean updateProduct(Long pid, String productId, String productName, String productImg, double productPrice, long productType, String productDescription, String productTags) throws Exception {
+        String sql = "update product set product_id = ?,product_name = ?,product_img = ?,product_price = ?,product_type = ?,product_description = ?,product_tags = ? where pid = ?";
+        return JDBCTemplate.update(sql, productId, productName, productImg, productPrice, productType, productDescription, productTags, pid) >= 1;
+    }
+
+    @Override
+    public List<ProductType> getProductTypes() {
+       String sql = "select * from product_type";
+       return JDBCTemplate.query(sql, rowMapper_productType, null);
+    }
+
+    @Override
+    public List<Product> getProductsByType(long productType) {
+        String sql = "select * from product where product_type = ?";
+        return JDBCTemplate.query(sql, rowMapper, productType);
+    }
+
 }

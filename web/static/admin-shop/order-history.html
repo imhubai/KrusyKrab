@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>取餐主页</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+</head>
+
+<body>
+    <div class="box-border block w-full h-full">
+        <!-- 历史订单题头 -->
+        <div class="flex items-center w-full border-b-2 border-black border- ">
+            <div class="box-border flex items-center text-xs">
+                <!-- <div class="box-border relative w-auto ml-px mr-px whitespace-pre cursor-pointer break-keep"> -->
+                    <svg class="box-border inline-block overflow-hidden text-black cursor-pointer" height="20" p-id="4250" t="1720874689802"
+                        version="1.1" viewBox="0 0 1024 1024" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M351.6 512.1L755 108.6c4.4-4.4 1.2-15-7.3-23.4L733 70.5c-8.4-8.4-19-11.7-23.4-7.3L269 503.8c-1.8 1.8-2.3 4.8-1.7 8.1-0.7 3.4-0.2 6.4 1.7 8.2l440.7 440.7c4.4 4.4 14.9 1.2 23.4-7.2l14.7-14.7c8.4-8.4 11.7-18.9 7.2-23.4L351.6 512.1z"
+                            fill="#666666" p-id="4251"></path>
+                    </svg>
+                <!-- </div> -->
+            </div>
+            <h4 class="flex-1 p-1 overflow-hidden font-bold text-center whitespace-nowrap">历史订单</h4>
+        </div>
+        <!-- 具体内容部分 -->
+
+        <div class="box-border relative block w-full h-full bg-slate-300">
+            <div class="box-border block w-full h-full">
+                <div class="box-border flex flex-col w-full pt-4 pb-0 pl-4 pr-4">
+                    <div class="box-border block mb-4">
+                        <div
+                            class="box-border relative items-center w-full pt-3 pb-3 pl-4 pr-4 overflow-hidden text-sm text-gray-600 bg-white">
+                            <div class="box-border flex items-center w-full border-b-2 border-b-black">
+                                <div class="box-border flex flex-col flex-1 ">
+                                    <div class="box-border block mb-4 text-2xl text-gray-600">此处是店名</div>
+                                    <div class="box-border block text-lg text-gray-600 ">订单编号</div>
+                                    <div></div>
+                                </div>
+                                <div class="box-border block text-2xl text-green-400">已完成</div>
+                            </div>
+                        </div>
+                        <div
+                            class="box-border relative flex items-center w-full pt-5 pb-5 pl-6 pr-6 overflow-hidden text-xl text-gray-600 bg-white">
+                            <div class="box-border flex flex-col w-full">
+                                <div
+                                    class="box-border block w-full mb-4 overflow-hidden text-2xl text-gray-600 whitespace-nowrap">
+                                    产品</div>
+                                <div class="box-border flex items-center justify-between mb-6">
+                                    <div class="box-border block text-lg text-gray-600">订单时间</div>
+                                    <div class="box-border flex">
+                                        <div class="box-border block mr-2 text-base">共n件商品，实付</div>
+                                        <div class="box-border block">¥m</div>
+                                        <div class="box-border block mr-2 text-base">&nbsp&nbsp元</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -133,6 +133,9 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding(this.encoding);
         response.setCharacterEncoding(this.encoding);
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "*");
         String URI = request.getRequestURI();
         if (URI.contains(".")) {
             URI = URI.substring(URI.indexOf(this.getServletContext().getContextPath())
@@ -150,7 +153,7 @@ public class FrontController extends HttpServlet {
         }
         try {
             if (handler == null) {
-                throw new RuntimeException("请求地址错误，无法正常处理");
+                throw new RuntimeException("REQ_ERROR");
             } else {
                 // 将请求数据提取，并按照方法参数列表顺序组织成数组
                 Object[] parameterObjects = this.populateData(request, response, handler.getMethod());
@@ -193,14 +196,14 @@ public class FrontController extends HttpServlet {
                         }
                     }
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                    request.setAttribute("error", e.getCause().getMessage());
+                    request.setAttribute("error",Objects.requireNonNull(e.getCause().getMessage()));
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/error.jsp");
                     rd.forward(request, response);
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            request.setAttribute("error", e.getCause().getMessage());
+            request.setAttribute("error", Objects.requireNonNull(e.getCause().getMessage()));
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/error.jsp");
             rd.forward(request, response);
         }

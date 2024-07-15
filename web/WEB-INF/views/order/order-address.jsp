@@ -1,15 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<body class="select-none">
 <!--界面-->
 <div class="container relative w-full h-screen overflow-hidden">
-    <!-- title -->
-    <div class="flex items-center w-full border-b-2 border-black border-dashed">
-        <h4 class="flex-1 p-1 overflow-hidden font-bold text-center whitespace-nowrap">蟹堡王点餐小程序</h4>
-    </div>
     <main class="relative flex flex-col items-center justify-start w-full h-full bg-stone-100">
+        <%@include file="../order/order-title.jsp" %>
         <div class="pt-2">
-            <img src="https://img.picui.cn/free/2024/07/05/66874648daf32.png" class="size-20" alt="">
+            <img src="${pageContext.servletContext.contextPath}/res/img/logo.png" class="size-20" alt="">
         </div>
         <div>
             <span class="text-base">请选择你所在的蟹堡王店铺</span>
@@ -85,13 +81,12 @@
                                         d="M738.688 710.8096c-48.3072 0-87.6288-38.1696-87.6288-85.0688a14.1824 14.1824 0 0 1 14.1824-14.1824h146.8928a14.1824 14.1824 0 0 1 14.1824 14.1824c0 46.8992-39.3216 85.0688-87.6288 85.0688zM681.3184 640c6.5792 24.4224 29.824 42.5216 57.3696 42.5216s50.7904-18.176 57.472-42.5216z"
                                         fill="#1296db" p-id="4856"></path>
                             </svg>
-                            <span class="ml-1 text-lg text-black">${shop.shopName}</span>
+                            <span class="ml-1 text-base text-nowrap text-black">${shop.shopName}</span>
                         </div>
-                        <span class="ml-1 text-base text-gray-900">${shop.shopAddress}</span>
+                        <span class="ml-1 text-sm text-nowrap text-gray-900">${shop.shopAddress}</span>
                     </div>
                 </div>
             </c:forEach>
         </div>
     </main>
 </div>
-</body>

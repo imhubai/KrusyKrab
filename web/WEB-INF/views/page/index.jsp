@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <%@include file="../common/common-include.jsp" %>
 </head>
-<body>
+<body class="overflow-x-hidden">
 <%@include file="../common/common-overlay.jsp" %>
 <%@include file="../common/common-nav.jsp" %>
 <%@include file="../common/common-index.jsp" %>

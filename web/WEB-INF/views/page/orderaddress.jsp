@@ -8,7 +8,7 @@
 </head>
 <body class="select-none">
 <%@include file="../order/order-address.jsp" %>
-<%@include file="../order/order-footer.jsp" %>
+<%--<%@include file="../order/order-footer.jsp" %>--%>
 </body>
 <script>
     function chooseShop(shopId) {
@@ -22,9 +22,6 @@
             },
             success: function (data) {
                 $("body").html(data);
-                let s = $(location).attr("href");
-                s=s.substring(0,s.lastIndexOf('/'));
-                window.history.pushState(null, null, s);
             }
         })
     }

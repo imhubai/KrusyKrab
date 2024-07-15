@@ -34,5 +34,7 @@
     <orderEntry type="library" name="alpine" level="application" />
     <orderEntry type="library" name="pagination" level="application" />
     <orderEntry type="library" name="paginationjs" level="application" />
+    <orderEntry type="library" name="bignumber" level="application" />
+    <orderEntry type="library" name="mathjs" level="application" />
   </component>
 </module>

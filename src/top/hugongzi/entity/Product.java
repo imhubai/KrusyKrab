@@ -8,7 +8,7 @@ public class Product {
   private String productName;
   private String productImg;
   private double productPrice;
-  private String productType;
+  private long productType;
   private String productDescription;
   private String productTags;
 
@@ -58,11 +58,11 @@ public class Product {
   }
 
 
-  public String getProductType() {
+  public long getProductType() {
     return productType;
   }
 
-  public void setProductType(String productType) {
+  public void setProductType(long productType) {
     this.productType = productType;
   }
 

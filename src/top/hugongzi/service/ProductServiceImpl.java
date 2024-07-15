@@ -3,6 +3,7 @@ package top.hugongzi.service;
 import top.hugongzi.dao.ProductDao;
 import top.hugongzi.dao.ProductDaoImpl;
 import top.hugongzi.entity.Product;
+import top.hugongzi.entity.ProductType;
 
 import java.util.List;
 
@@ -32,8 +33,32 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean editProduct(Long pid, String productId, String productName, String productImg, double productPrice, String productType, String productDescription, String productTags) throws Exception {
+    public Product getProductByProductId(String productId) throws Exception {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.getProductByProductId(productId);
+    }
+
+    @Override
+    public ProductType getProductTypeByProductId(String productId) throws Exception {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.getProductTypeByProductId(productId);
+    }
+
+    @Override
+    public boolean editProduct(Long pid, String productId, String productName, String productImg, double productPrice, long productType, String productDescription, String productTags) throws Exception {
         ProductDao productDao = new ProductDaoImpl();
         return productDao.updateProduct(pid, productId, productName, productImg, productPrice, productType, productDescription, productTags);
+    }
+
+    @Override
+    public List<Product> getProductsByType(long productType) {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.getProductsByType(productType);
+    }
+
+    @Override
+    public List<ProductType> getProductTypes() {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.getProductTypes();
     }
 }

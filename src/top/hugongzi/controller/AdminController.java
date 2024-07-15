@@ -45,7 +45,7 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public ModelAndView login(@RequestParam(name = "adminid") String adminId, @RequestParam(name = "adminpassword") String adminPassword, HttpSession session) {
-        if (session.getAttribute(Vars.currentAdmin) != null) {
+        if (session.getAttribute(Vars.currentAdmin) != null &&  Objects.equals(session.getAttribute(Vars.currentAdmin),"")) {
             return new ModelAndView("page/admin");
         }
         if (Objects.equals(adminId, "") || Objects.equals(adminPassword, "")) {
@@ -253,7 +253,7 @@ public class AdminController {
     }
 
     @RequestMapping("/admin/editProduct")
-    public String editProduct(@RequestParam(name = "pid") String pid, @RequestParam(name = "productId") String productId, @RequestParam(name = "productName") String productName, @RequestParam(name = "productImg") String productImg, @RequestParam(name = "productPrice") Double productPrice, @RequestParam(name = "productType") String productType, @RequestParam(name = "productDescription") String productDescription, @RequestParam(name = "productTags") String productTags) throws Exception {
+    public String editProduct(@RequestParam(name = "pid") String pid, @RequestParam(name = "productId") String productId, @RequestParam(name = "productName") String productName, @RequestParam(name = "productImg") String productImg, @RequestParam(name = "productPrice") Double productPrice, @RequestParam(name = "productType") long productType, @RequestParam(name = "productDescription") String productDescription, @RequestParam(name = "productTags") String productTags) throws Exception {
         productService = new ProductServiceImpl();
         if (productService.editProduct(Long.parseLong(pid), productId, productName, productImg, productPrice, productType, productDescription, productTags)) {
             return "return:200";

@@ -13,11 +13,11 @@
 <body class="select-none">
     <!--界面-->
     <div class="container relative w-full h-screen overflow-hidden">
-        <!-- title -->
-        <div class="flex items-center w-full border-b-2 border-black border-dashed">
-            <h4 class="flex-1 p-1 overflow-hidden font-bold text-center whitespace-nowrap">蟹堡王点餐小程序</h4>
-        </div>
         <main class="relative flex flex-col w-full h-full">
+            <!-- title -->
+            <div class="flex items-center w-full border-b-2 border-black border-dashed">
+                <h4 class="flex-1 p-1 overflow-hidden font-bold text-center whitespace-nowrap">蟹堡王点餐小程序</h4>
+            </div>
             <div class="flex flex-col flex-shrink-0 h-auto">
                 <div class="flex items-center justify-between w-full h-auto p-3 bg-white">
                     <div class="flex flex-col flex-1">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <!-- 主菜单-->
-            <div class="flex flex-1 w-full overflow-hidden">
+            <div class="flex flex-1 w-full mb-16 overflow-hidden">
                 <div class="w-24 h-full overflow-hidden bg-slate-50">
                     <div class="w-full h-screen overflow-x-hidden overflow-y-auto scroll-smooth">
                         <div>
@@ -121,7 +121,7 @@
             </div>
             <!-- cart -->
             <div
-                class="absolute z-40 flex items-center justify-between bg-white shadow-xl bottom-10 left-4 right-4 h-9 rounded-2xl">
+                class="absolute z-40 flex items-center justify-between bg-white shadow-xl bottom-16 left-4 right-4 h-9 rounded-2xl">
                 <!-- mark -->
                 <div class="box-border relative block pl-4 mr-3">
                     <!-- img-->
@@ -197,6 +197,49 @@
             </div>
 
         </main>
+        <!-- bottom -->
+        <div class="box-border fixed bottom-0 z-50 flex invisible w-full bg-white">
+            <div class="box-border absolute w-full h-px bg-slate-400"></div>
+            <div class="box-border flex flex-col items-center justify-center flex-1 text-center">
+                <div class="box-border relative flex flex-col items-center justify-center h-12 cursor-pointer">
+                    <div class="box-border relative inline-block w-6 h-6 mt-1">
+                        <svg class="icon" height="25" p-id="2332" t="1720751291794"
+                            version="1.1" viewBox="0 0 1024 1024" width="25" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M512 85.333333c58.901333 0 106.666667 49.322667 106.666667 110.165334 0 5.610667-0.426667 11.178667-1.216 16.64 114.133333 45.44 195.050667 162.496 195.050666 299.136v119.296l2.325334 0.853333a92.8 92.8 0 0 1 59.733333 82.197333l0.106667 4.352c0 51.2-41.749333 92.693333-93.248 92.693334h-141.802667c-5.013333 71.594667-60.245333 128-127.616 128-67.370667 0-122.602667-56.405333-127.616-128H242.56C191.082667 810.666667 149.333333 769.173333 149.333333 717.973333a92.736 92.736 0 0 1 59.84-86.570666l2.346667-0.832v-119.616l0.064-6.762667c2.730667-133.76 82.901333-247.424 195.008-292.010667A108.266667 108.266667 0 0 1 405.333333 195.498667C405.333333 134.656 453.098667 85.333333 512 85.333333z m68.224 725.333334h-136.448c4.778667 36.202667 33.493333 64 68.224 64 34.709333 0 63.445333-27.797333 68.224-64zM512 253.824c-129.088 0-235.392 111.445333-238.250667 251.328l-0.064 6.144v144.917333c0 17.066667-13.930667 30.890667-31.104 30.890667l-2.986666 0.149333a30.976 30.976 0 0 0-28.096 30.741334c0 17.066667 13.930667 30.890667 31.082666 30.890666H781.44c17.152 0 31.082667-13.824 31.082667-30.890666 0-17.066667-13.930667-30.890667-31.082667-30.890667l-2.986667-0.149333a30.976 30.976 0 0 1-28.117333-30.741334v-144.917333c0-142.698667-107.221333-257.493333-238.314667-257.493333z m0-95.04c-19.2 0-34.88 15.744-35.541333 35.434667a288.021333 288.021333 0 0 1 71.04 0l0.064 1.28c0-20.266667-15.936-36.693333-35.562667-36.693334z"
+                                fill="#333333" p-id="2333"></path>
+                        </svg>
+                    </div>
+                    <div class="box-border relative mt-1 text-xs font-bold leading-normal text-center text-gray-900">点餐</div>
+                </div>
+            </div>
+            <div class="box-border flex flex-col items-center justify-center flex-1 text-center">
+                <div class="box-border relative flex flex-col items-center justify-center h-12 cursor-pointer">
+                    <div class="box-border relative inline-block w-6 h-6 mt-1">
+                        <svg class="icon" height="25" p-id="2892" t="1720751367319"
+                            version="1.1" viewBox="0 0 1024 1024" width="25" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M810.666667 85.333333a85.333333 85.333333 0 0 1 85.333333 85.333334v682.666666a85.333333 85.333333 0 0 1-85.333333 85.333334H213.333333a85.333333 85.333333 0 0 1-85.333333-85.333334V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h597.333334z m0 64H213.333333a21.333333 21.333333 0 0 0-21.184 18.837334L192 170.666667v682.666666a21.333333 21.333333 0 0 0 18.837333 21.184L213.333333 874.666667h597.333334a21.333333 21.333333 0 0 0 21.184-18.837334L832 853.333333V170.666667a21.333333 21.333333 0 0 0-18.837333-21.184L810.666667 149.333333z m-117.333334 362.666667a32 32 0 0 1 0 64h-362.666666a32 32 0 0 1 0-64h362.666666z m-170.666666-170.666667a32 32 0 0 1 0 64h-192a32 32 0 0 1 0-64h192z"
+                                fill="#333333" p-id="2893"></path>
+                        </svg>
+                    </div>
+                    <div class="box-border relative mt-1 text-xs leading-normal text-center text-gray-900">订单</div>
+                </div>
+            </div>
+            <div class="box-border flex flex-col items-center justify-center flex-1 text-center">
+                <div class="box-border relative flex flex-col items-center justify-center h-12 cursor-pointer">
+                    <div class="box-border relative inline-block w-6 h-6 mt-1">
+                        <svg class="icon" height="25" p-id="2686" t="1720751342836"
+                            version="1.1" viewBox="0 0 1024 1024" width="25" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M512 576c83.2 0 166.4 11.626667 249.6 34.858667a183.829333 183.829333 0 0 1 134.4 177.066666V832a85.333333 85.333333 0 0 1-85.333333 85.333333H213.333333a85.333333 85.333333 0 0 1-85.333333-85.333333v-44.096a183.829333 183.829333 0 0 1 134.4-177.066667C345.6 587.648 428.8 576 512 576z m0 64c-77.333333 0-154.752 10.816-232.405333 32.490667a119.829333 119.829333 0 0 0-87.466667 110.229333L192 787.904V832a21.333333 21.333333 0 0 0 18.837333 21.184L213.333333 853.333333h597.333334a21.333333 21.333333 0 0 0 21.184-18.837333L832 832v-44.096a119.829333 119.829333 0 0 0-87.594667-115.413333C666.752 650.816 589.312 640 512 640z m0-533.333333c117.824 0 213.333333 95.509333 213.333333 213.333333s-95.509333 213.333333-213.333333 213.333333-213.333333-95.509333-213.333333-213.333333S394.176 106.666667 512 106.666667z m0 64a149.333333 149.333333 0 1 0 0 298.666666 149.333333 149.333333 0 0 0 0-298.666666z"
+                                fill="#333333" p-id="2687"></path>
+                        </svg>
+                    </div>
+                    <div class="box-border relative mt-1 text-xs leading-normal text-center text-gray-900">我的</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
