@@ -3,6 +3,7 @@ package top.hugongzi.service;
 import top.hugongzi.dao.UserDao;
 import top.hugongzi.dao.UserDaoImpl;
 import top.hugongzi.entity.User;
+import top.hugongzi.entity.UserOrder;
 
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByName(String username) throws Exception {
+    public User getUserByUserId(String username) throws Exception {
         UserDao userDao = new UserDaoImpl();
         return userDao.getUserByName(username);
     }
@@ -50,5 +51,13 @@ public class UserServiceImpl implements UserService {
     public boolean editUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar) {
         UserDao userDao = new UserDaoImpl();
         return userDao.updateUser(uid, userId, password, nickname, email, sex, phone, birthday, usertype, avatar);
+    }
+
+    @Override
+    public List<UserOrder> getUserOrderByUserId(String userId) throws Exception {
+        UserDao userDao = new UserDaoImpl();
+        User user = userDao.getUserByName(userId);
+        if (user == null) return null;
+        return userDao.getUserOrderByUid(user.getUid());
     }
 }

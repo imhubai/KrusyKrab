@@ -7,7 +7,8 @@
     <%@include file="../order/order-include.jsp" %>
 </head>
 <body class="select-none overflow-hidden">
-<%@include file="../order/order-detail.jsp" %>
+<%@include file="../order/order-title.jsp" %>
+<%@include file="../order/order-history-null.jsp" %>
 <%@include file="../order/order-footer.jsp" %>
 </body>
 <script>

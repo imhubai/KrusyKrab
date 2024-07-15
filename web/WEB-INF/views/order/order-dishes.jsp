@@ -14,9 +14,9 @@
                         <span>${shop.shopAddress}</span>
                     </div>
                 </div>
-                <div id="btn_top_group" class="flex items-center pr-2 bg-gray-100 rounded-2xl ring-1 ring-gray-800">
+                <div id="btn_top_group" class="flex items-center bg-gray-100 rounded-2xl ring-1 ring-gray-800 pr-2">
                     <div class="text-sm">
-                        <button id="btn_ts" onclick="switchAction('1')" class="pt-1 pb-1 pl-4 pr-4 rounded-2xl bg-lime-400 mr-1">堂食</button>
+                        <button id="btn_ts" onclick="switchAction('1')" class="pt-1 pb-1 pl-2 pr-2 rounded-2xl bg-lime-400 mr-2">堂食</button>
                     </div>
                     <div class="text-sm">
                         <button id="btn_ws" onclick="switchAction('2')">外送</button>
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="flex items-center justify-between w-full">
                                             <div class="font-bold">
-                                                <span>￥${products.productPrice}</span>
+                                                <span>¥${products.productPrice}</span>
                                             </div>
                                             <div class="relative flex items-center justify-between">
                                                 <div data-id="${products.productId}" onclick="reduceItem(this)"
@@ -100,5 +100,6 @@
         </div>
         <%@include file="../order/order-dishes-modal.jsp" %>
         <%@include file="../order/order-dishes-cart.jsp" %>
+        <%@include file="../order/order-cart-popup.jsp" %>
     </main>
 </div>

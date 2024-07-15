@@ -13,18 +13,20 @@
 </body>
 <script>
     function switchAction(action) {
+        let ts = $("#btn_ts");
+        let ws = $("#btn_ws");
         if (action === "2") {
-            $("#btn_ts").removeClass();
-            $("#btn_ws").removeClass();
-            $("#btn_ts").addClass("pl-2 pr-2");
+            ts.removeClass();
+            ws.removeClass();
+            ts.addClass("pl-2 pr-2");
             $("#btn_top_group").removeClass("pr-2");
-            $("#btn_ws").addClass("pt-1 pb-1 pl-2 pr-2 rounded-2xl bg-lime-400");
+            ws.addClass("pt-1 pb-1 pl-2 pr-2 rounded-2xl bg-lime-400");
             cart.action = "外送";
         } else {
-            $("#btn_ws").removeClass();
-            $("#btn_ts").removeClass();
+            ws.removeClass();
+            ts.removeClass();
             $("#btn_top_group").addClass("pr-2");
-            $("#btn_ts").addClass("pt-1 pb-1 pl-2 pr-2 rounded-2xl bg-lime-400 mr-1");
+            ts.addClass("pt-1 pb-1 pl-2 pr-2 rounded-2xl bg-lime-400 mr-2");
             cart.action = "堂食";
         }
     }
@@ -203,9 +205,30 @@
                     cart: JSON.stringify(cart)
                 },
                 success: function (data) {
+                    $("body").html(data);
                 }
             })
         }
+    }
+
+    function cartPopup() {
+        $("#cart_popup_detail").empty();
+        let str = "";
+        for (const itemId in cart.items) {
+            if (cart.items.hasOwnProperty(itemId)) {
+                const item = cart.items[itemId];
+                let p = math.format(
+                    math.chain(math.bignumber(item.productPrice))
+                        .multiply(math.bignumber(item.productCount))
+                        .done()
+                );
+                str += '<div class="flex flex-row justify-between items-center">';
+                str += '<span>' + item.productName + ' ' + item.productTags + ' * ' + item.productCount + '</span>';
+                str += '<span>¥ ' + p + '</span></div>';
+            }
+        }
+        $("#cart_popup_detail").append(str);
+        $("#cart_modal").show();
     }
 
     $(function () {

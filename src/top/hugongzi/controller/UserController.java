@@ -10,7 +10,6 @@ import top.hugongzi.framework.model.ModelAndView;
 import top.hugongzi.service.*;
 
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,14 +57,24 @@ public class UserController {
     }
 
     @RequestMapping("/order/addOrder")
-    public ModelAndView addOrder(@RequestParam(name = "cart") String cart) {
+    public ModelAndView addOrder(@RequestParam(name = "cart") String cart, HttpSession session) {
         ObjectMapper objectMapper = new ObjectMapper();
+        ModelAndView mv = new ModelAndView("page/orderconfirm");
         try {
             Cart cartResponse = objectMapper.readValue(cart, Cart.class);
-        } catch (IOException e) {
+            ShopService shopService = new ShopServiceImpl();
+            Shop shop = shopService.getShopByShopId((String) session.getAttribute(Vars.orderShopId));
+            mv.addObject("action", cartResponse.getAction());
+            mv.addObject("cartJson", cart);
+            mv.addObject("shopName", shop.getShopName());
+            mv.addObject("shopAddress", shop.getShopAddress());
+            mv.addObject("shopPhone", shop.getShopPhone());
+            mv.addObject("price", cartResponse.getPrice());
+            mv.addObject("cartList", cartResponse.getItems().values().toArray());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ModelAndView("page/orderdetail");
+        return mv;
     }
 
     @RequestMapping("/order/switchShop")
@@ -100,9 +109,12 @@ public class UserController {
     }
 
     @RequestMapping("/order/history")
-    public ModelAndView history() {
+    public ModelAndView history() throws Exception {
         UserService userService = new UserServiceImpl();
-       // userService.getUserOrder();
+        List<UserOrder> orderList = userService.getUserOrderByUserId(Vars.currentUser);
+        if (orderList == null || orderList.isEmpty()) {
+            return new ModelAndView("page/orderhistory_null");
+        }
         ModelAndView mv = new ModelAndView("page/orderhistory");
         return mv;
     }
@@ -111,7 +123,7 @@ public class UserController {
     public ModelAndView my() throws Exception {
         ModelAndView mv = new ModelAndView("page/ordermy");
         UserService userService = new UserServiceImpl();
-        User user = userService.getUserByName(Vars.currentUser);
+        User user = userService.getUserByUserId(Vars.currentUser);
         mv.addObject("user", user);
         return mv;
     }
@@ -129,7 +141,7 @@ public class UserController {
         try {
             if (userService.validate(username, userpassword)) {
                 Vars.currentUser = username;
-                session.setAttribute(Vars.currentUser, userService.getUserByName(username));
+                session.setAttribute(Vars.currentUser, userService.getUserByUserId(username));
                 return "redirect:order";
             } else {
                 return "redirect:./error?msg=error_pwd";
@@ -138,8 +150,14 @@ public class UserController {
             return "page/login";
         }
     }
+
+    @RequestMapping("/register")
+    public ModelAndView userRegister() {
+        return new ModelAndView("page/register");
+    }
+
     @RequestMapping("/order/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         Vars.currentUser = "";
         session.setAttribute(Vars.currentUser, null);
         return "return:200";

@@ -1,6 +1,5 @@
 package top.hugongzi.entity;
 
-
 import java.util.List;
 
 public class ProductType {

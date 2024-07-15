@@ -1,6 +1,7 @@
 package top.hugongzi.dao;
 
 import top.hugongzi.entity.User;
+import top.hugongzi.entity.UserOrder;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface UserDao {
     User getUserByName(String username) throws Exception;
 
     boolean updateUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar);
+
+    List<UserOrder> getUserOrderByUid(Long uid);
 }

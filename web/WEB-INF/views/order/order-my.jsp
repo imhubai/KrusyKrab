@@ -45,7 +45,7 @@
         </div>
         <div class="box-border flex items-center justify-center w-full">
             <div class="box-border flex flex-col items-center justify-center w-1/4 p-4">
-                <div class="box-border block mb-2 text-xl font-bold text-gray-600">
+                <div class="box-border block mb-2 text-xl text-nowrap font-bold text-gray-600">
                     ${user.userId}
                 </div>
                 <div class="box-border block text-xs text-gray-600">
@@ -53,15 +53,15 @@
                 </div>
             </div>
             <div class="box-border flex flex-col items-center justify-center w-1/4 p-4">
-                <div class="box-border block mb-2 text-xl font-bold text-gray-600">
+                <div class="box-border block mb-2 text-xl text-nowrap font-bold text-gray-600">
                     ${user.sex}
                 </div>
-                <div class="box-border block text-xs text-gray-600">
+                <div class="box-border block text-xs text-nowrap text-gray-600">
                     性别
                 </div>
             </div>
             <div class="box-border flex flex-col items-center justify-center w-1/4 p-4">
-                <div class="box-border block mb-2 text-xl font-bold text-gray-600">
+                <div class="box-border block mb-2 text-xl text-nowrap font-bold text-gray-600">
                     ${user.birthday}
                 </div>
                 <div class="box-border block text-xs text-gray-600">
@@ -75,7 +75,7 @@
         <button id="btn_logout" onclick="logout()"
                 class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 active:from-lime-300 active:to-teal-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-white dark:text-white focus:outline-none focus:ring-0 focus:ring-lime-800 mx-auto">
             <span
-                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gradient-to-br from-lime-300 to-teal-300 rounded-md group-hover:bg-opacity-0">
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gradient-to-br from-lime-400 to-teal-500 rounded-md group-hover:bg-opacity-0">
                 退出登录
             </span>
         </button>

@@ -1,6 +1,7 @@
 package top.hugongzi.dao;
 
 import top.hugongzi.entity.User;
+import top.hugongzi.entity.UserOrder;
 import top.hugongzi.framework.db.JDBCTemplate;
 import top.hugongzi.framework.db.RowMapper;
 
@@ -21,6 +22,21 @@ public class UserDaoImpl implements UserDao {
         user.setCreatetime(rs.getTimestamp("createtime"));
         user.setAvatar(rs.getString("avatar"));
         return user;
+    };
+
+    private final RowMapper<UserOrder> rowMapper_userOrder = (rs, rowNum) -> {
+        UserOrder userOrder = new UserOrder();
+        userOrder.setOid(rs.getLong("oid"));
+        userOrder.setUid(rs.getLong("uid"));
+        userOrder.setSid(rs.getLong("sid"));
+        userOrder.setNumber(rs.getLong("number"));
+        userOrder.setTid(rs.getLong("tid"));
+        userOrder.setOrderPrice(rs.getDouble("order_price"));
+        userOrder.setOrderState(rs.getString("order_state"));
+        userOrder.setOrderTime(rs.getTimestamp("order_time"));
+        userOrder.setOrderOkTime(rs.getTimestamp("order_ok_time"));
+        userOrder.setPayment(rs.getString("payment"));
+        return userOrder;
     };
 
     public RowMapper<User> getRowMapper() {
@@ -67,5 +83,11 @@ public class UserDaoImpl implements UserDao {
     public boolean updateUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar) {
         String sql = "update user set user_id = ?,password = ?,nickname = ?,email = ?,sex = ?,phone = ?,birthday = ?,usertype = ?,avatar = ? where uid = ?";
         return JDBCTemplate.update(sql, userId, password, nickname, email, sex, phone, birthday, usertype, avatar, uid) >= 1;
+    }
+
+    @Override
+    public List<UserOrder> getUserOrderByUid(Long uid) {
+        String sql = "select * from user_order where uid = ?";
+        return JDBCTemplate.query(sql, rowMapper_userOrder, uid);
     }
 }

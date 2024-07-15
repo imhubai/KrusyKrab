@@ -1,6 +1,7 @@
 package top.hugongzi.service;
 
 import top.hugongzi.entity.User;
+import top.hugongzi.entity.UserOrder;
 
 import java.util.List;
 
@@ -15,9 +16,9 @@ public interface UserService {
 
     User getUserById(Long uid) throws Exception;
 
-    User getUserByName(String username) throws Exception;
+    User getUserByUserId(String username) throws Exception;
 
     boolean editUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar);
 
-
+    List<UserOrder> getUserOrderByUserId(String userId) throws Exception;
 }
