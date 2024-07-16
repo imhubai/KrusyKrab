@@ -1,6 +1,5 @@
 package top.hugongzi.entity;
 
-import java.sql.Timestamp;
 
 public class UserOrder {
 
@@ -12,17 +11,11 @@ public class UserOrder {
   private double orderPrice;
   private String orderState;
   private java.sql.Timestamp orderTime;
-
   private java.sql.Timestamp orderOkTime;
-
-  public Timestamp getOrderOkTime() {
-    return orderOkTime;
-  }
-
-  public void setOrderOkTime(Timestamp orderOkTime) {
-    this.orderOkTime = orderOkTime;
-  }
   private String payment;
+  private java.sql.Timestamp orderCancelTime;
+  private String action;
+  private String cartJson;
 
 
   public long getOid() {
@@ -97,12 +90,48 @@ public class UserOrder {
   }
 
 
+  public java.sql.Timestamp getOrderOkTime() {
+    return orderOkTime;
+  }
+
+  public void setOrderOkTime(java.sql.Timestamp orderOkTime) {
+    this.orderOkTime = orderOkTime;
+  }
+
+
   public String getPayment() {
     return payment;
   }
 
   public void setPayment(String payment) {
     this.payment = payment;
+  }
+
+
+  public java.sql.Timestamp getOrderCancelTime() {
+    return orderCancelTime;
+  }
+
+  public void setOrderCancelTime(java.sql.Timestamp orderCancelTime) {
+    this.orderCancelTime = orderCancelTime;
+  }
+
+
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+
+  public String getCartJson() {
+    return cartJson;
+  }
+
+  public void setCartJson(String cartJson) {
+    this.cartJson = cartJson;
   }
 
 }

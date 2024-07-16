@@ -11,5 +11,5 @@ public interface ShopDao {
     boolean deleteShop(int sid) throws Exception;
     Shop getShop(int sid) throws Exception;
     boolean updateShop(int sid, String shopId, String shopName, String shopAddress, String shopPhone,String shopType);
-}
+  }
 

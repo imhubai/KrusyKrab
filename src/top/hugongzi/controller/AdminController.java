@@ -112,16 +112,6 @@ public class AdminController {
         }
     }
 
-    /*shop管理层shop管理层shop管理层 shop管理层
-    shop管理层 shop管理层shop管理层shop管理层
-    shop管理层 shop管理层shop管理层 shop管理层
-    shop管理层shop管理层 shop管理层shop管理层
-    shop管理层shop管理层shop管理层 shop管理层
-    shop管理层shop管理层shop管理层 shop管理层
-    shop管理层shop管理层shop管理层 shop管理层
-    shop管理层shop管理层shop管理层 shop管理层
-    shop管理层 shop管理层shop管理层shop管理层*/
-
     /**
      * 删除店铺
      *
@@ -206,19 +196,6 @@ public class AdminController {
             return "return:400";
         }
     }
-    /*product管理层 product管理层product管理层product管理层
-    product管理层 product管理层product管理层product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层 product管理层product管理层product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层product管理层product管理层 product管理层
-    product管理层 product管理层product管理层 product管理层
-    product管理层 product管理层product管理层 product管理层
-    product管理层 product管理层product管理层 product管理层*/
 
     /**
      * 删除产品

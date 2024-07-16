@@ -1,6 +1,7 @@
 package top.hugongzi.service;
 
 import top.hugongzi.entity.Shop;
+import top.hugongzi.entity.UserOrder;
 
 import java.util.List;
 
@@ -11,5 +12,8 @@ public interface ShopService {
     Shop getShopById(int sid) throws Exception;
     Shop getShopByShopId(String shopId) throws Exception;
     boolean editShop(int sid, String shopId, String shopName, String shopAddress, String shopPhone,String shopType) throws Exception;
+    int getOrderCount(long sid) throws Exception;
+
+    List<UserOrder> getUserOrderBySid(long sid) throws Exception;
 }
 

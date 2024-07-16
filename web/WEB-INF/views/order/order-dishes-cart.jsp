@@ -13,5 +13,5 @@
     <!-- price-->
     <div id="cart_price" class="flex-1 text-gray-900">总价: 0 元</div>
     <!-- pay-->
-    <div onclick="cartComplete()" class="flex items-center h-full pl-3 pr-3 text-sm text-white rounded-r-2xl bg-lime-700">去结算</div>
+    <div onclick="cartComplete()" class="flex items-center h-full pl-3 pr-3 text-sm text-white rounded-r-2xl bg-lime-600">去结算</div>
 </div>

@@ -15,8 +15,6 @@ import java.util.Objects;
 
 @Controller
 public class UserController {
-    UserService userService;
-
     @RequestMapping("/order")
     public String order(HttpSession session) {
         if (session.getAttribute(Vars.currentUser) == null || session.getAttribute(Vars.currentUser) == "") {
@@ -59,7 +57,7 @@ public class UserController {
     @RequestMapping("/order/addOrder")
     public ModelAndView addOrder(@RequestParam(name = "cart") String cart, HttpSession session) {
         ObjectMapper objectMapper = new ObjectMapper();
-        ModelAndView mv = new ModelAndView("page/orderconfirm");
+        ModelAndView mv = new ModelAndView("page/orderresult");
         try {
             Cart cartResponse = objectMapper.readValue(cart, Cart.class);
             ShopService shopService = new ShopServiceImpl();
@@ -74,6 +72,36 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return mv;
+    }
+
+    @RequestMapping("/order/orderResult")
+    public String orderResult(@RequestParam(name = "cart") String cart, @RequestParam(name = "payReturn") String isPaid, HttpSession session) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        UserService userService = new UserServiceImpl();
+        Cart cartResponse = objectMapper.readValue(cart, Cart.class);
+        long result = userService.addOrder(cartResponse, (String) session.getAttribute(Vars.orderShopId), (String) session.getAttribute(Vars.currentUser), isPaid, cart);
+        return "return:" + result;
+    }
+
+    @RequestMapping("/order/orderDetail")
+    public ModelAndView orderDetail(@RequestParam(name = "orderId") String orderId, HttpSession session) throws Exception {
+        if (orderId == null || orderId.isEmpty()) {
+            return new ModelAndView("page/orderhistory");
+        }
+        ModelAndView mv = new ModelAndView("page/orderdetail");
+        ObjectMapper objectMapper = new ObjectMapper();
+        ShopService shopService = new ShopServiceImpl();
+        Shop shop = shopService.getShopByShopId((String) session.getAttribute(Vars.orderShopId));
+        UserService userService = new UserServiceImpl();
+        UserOrder userOrder = userService.getOrder(Integer.parseInt(orderId));
+        Cart cartResponse = objectMapper.readValue(userOrder.getCartJson(), Cart.class);
+        mv.addObject("shopName", shop.getShopName());
+        mv.addObject("shopAddress", shop.getShopAddress());
+        mv.addObject("shopPhone", shop.getShopPhone());
+        mv.addObject("obj", userOrder);
+        mv.addObject("cart", userOrder.getCartJson());
+        mv.addObject("cartList", cartResponse.getItems().values().toArray());
         return mv;
     }
 
@@ -109,21 +137,22 @@ public class UserController {
     }
 
     @RequestMapping("/order/history")
-    public ModelAndView history() throws Exception {
+    public ModelAndView history(HttpSession session) throws Exception {
         UserService userService = new UserServiceImpl();
-        List<UserOrder> orderList = userService.getUserOrderByUserId(Vars.currentUser);
+        List<UserOrder> orderList = userService.getUserOrderByUserId((String) session.getAttribute(Vars.currentUser));
         if (orderList == null || orderList.isEmpty()) {
             return new ModelAndView("page/orderhistory_null");
         }
         ModelAndView mv = new ModelAndView("page/orderhistory");
+        mv.addObject("orderList", orderList);
         return mv;
     }
 
     @RequestMapping("/order/my")
-    public ModelAndView my() throws Exception {
+    public ModelAndView my(HttpSession session) throws Exception {
         ModelAndView mv = new ModelAndView("page/ordermy");
         UserService userService = new UserServiceImpl();
-        User user = userService.getUserByUserId(Vars.currentUser);
+        User user = userService.getUserByUserId((String) session.getAttribute(Vars.currentUser));
         mv.addObject("user", user);
         return mv;
     }
@@ -137,11 +166,10 @@ public class UserController {
             return "page/login";
         }
 
-        userService = new UserServiceImpl();
+        UserService userService = new UserServiceImpl();
         try {
             if (userService.validate(username, userpassword)) {
-                Vars.currentUser = username;
-                session.setAttribute(Vars.currentUser, userService.getUserByUserId(username));
+                session.setAttribute(Vars.currentUser, userService.getUserByUserId(username).getUserId());
                 return "redirect:order";
             } else {
                 return "redirect:./error?msg=error_pwd";
@@ -161,5 +189,17 @@ public class UserController {
         Vars.currentUser = "";
         session.setAttribute(Vars.currentUser, null);
         return "return:200";
+    }
+
+    @RequestMapping("/registerUser")
+    public String registerUser(@RequestParam(name = "userId") String userId, @RequestParam(name = "password") String password, @RequestParam(name = "nickname") String nickname, @RequestParam(name = "phone") String phone, @RequestParam(name = "sex") String sex, @RequestParam(name = "birthday") String birthday, @RequestParam(name = "email") String email, HttpSession session) {
+        UserService userService = new UserServiceImpl();
+        if (userService.registerUser(userId, password, nickname, phone, sex, birthday, email)) {
+            session.setAttribute(Vars.currentUser, userId);
+            return "redirect:order";
+        } else {
+            return "redirect:./error?msg=error_registerUser";
+        }
+
     }
 }

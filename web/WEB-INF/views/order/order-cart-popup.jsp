@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <div id="cart_modal" hidden>
-    <div class="fixed inset-0 transition-opacity bg-black bg-opacity-75"></div>
+    <div onclick="hideCartModal()" class="fixed inset-0 transition-opacity bg-black bg-opacity-75"></div>
 
     <div class="box-border fixed z-50 w-11/12 p-0 m-auto ease-in-out rounded-md left-5 top-1/4 bg-slate-200">
         <div onclick="hideCartModal()" class="absolute flex items-center justify-end right-1 top-4">

@@ -50,9 +50,8 @@
     }
 
     Cart.prototype.addItem = function (item, quantity) {
-        if (!this.items[item.productId]) {
-            this.items[item.productId] = Object.assign({}, item);
-        }
+        if (!this.items[item.productId]) this.items[item.productId] = Object.assign({}, item);
+        if (this.items[item.productId].productTags !== item.productTags) this.items[item.productId].productTags += "+" + item.productTags;
         this.items[item.productId].productCount += quantity;
         this.count += quantity;
         this.price = math.format(
@@ -71,9 +70,7 @@
                     .subtract(math.bignumber(this.items[itemId].productPrice * quantity))
                     .done()
             )
-            if (this.items[itemId].productCount <= 0) {
-                delete this.items[itemId];
-            }
+            if (this.items[itemId].productCount <= 0) delete this.items[itemId];
         }
     };
 
@@ -191,7 +188,6 @@
             $(obj).siblings('.count').removeClass('invisible');
         }
         $("#cart_price").text("总价: " + cart.price + " 元");
-        cart.listItems();
     }
 
     function cartComplete() {

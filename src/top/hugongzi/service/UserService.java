@@ -1,5 +1,6 @@
 package top.hugongzi.service;
 
+import top.hugongzi.entity.Cart;
 import top.hugongzi.entity.User;
 import top.hugongzi.entity.UserOrder;
 
@@ -21,4 +22,11 @@ public interface UserService {
     boolean editUser(Long uid, String userId, String password, String nickname, String email, String sex, String phone, String birthday, String usertype, String avatar);
 
     List<UserOrder> getUserOrderByUserId(String userId) throws Exception;
+
+    long addOrder(Cart cartResponse, String shopId, String userId, String isPaid,String json) throws Exception;
+
+    UserOrder getOrder(int oid) throws Exception;
+
+    boolean changeState(int oid,String state);
+    boolean registerUser(String userId, String password, String nickname,  String phone, String sex, String birthday, String email );
 }

@@ -1,8 +1,12 @@
 package top.hugongzi.constant;
 
 public class Vars {
-    public static String currentUser = "";
-    public static String currentAdmin = "";
+    public static String currentUser = "_USER";
+    public static String currentAdmin = "_ADMIN";
+
+    //Shop staff only!!!
     public static String currentShop = "";
-    public static String orderShopId = "";
+
+    //Client
+    public static String orderShopId = "_SHOP";
 }

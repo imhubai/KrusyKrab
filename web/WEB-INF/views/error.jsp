@@ -10,6 +10,9 @@
         case "error_address":
             nameStr = "未知的店铺id";
             break;
+        case "error_registerUser":
+            nameStr="注册失败";
+            break;
         default:
             break;
     }

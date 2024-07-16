@@ -11,6 +11,14 @@
 <%@include file="../order/order-footer.jsp" %>
 </body>
 <script>
+    function question() {
+        alert("damn");
+    }
+
+    function back_pay() {
+        window.location.href = "${pageContext.servletContext.contextPath}/order/orderResult?cart=" + ${cart}+"?payReturn=true";
+    }
+
     $(function () {
         $("#btn_history").addClass("font-bold");
     });

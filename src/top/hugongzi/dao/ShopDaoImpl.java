@@ -56,6 +56,7 @@ public class ShopDaoImpl implements ShopDao{
     public boolean updateShop(int sid, String shopId, String shopName, String shopAddress, String shopPhone, String shopType) {
         String sql = "update shop set shop_id= ? ,shop_name= ? ,shop_address= ? ,shop_type= ?, shop_phone= ? where sid= ?";
         return JDBCTemplate.update(sql, shopId, shopName, shopAddress, shopType, shopPhone, sid) >= 1;    }
-    }
+
+}
 
 
